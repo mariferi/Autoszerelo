@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Munkafelvevo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Ügyintéző kliens" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Label Grid.Row="0" Content="Megbízások" Margin="15,15,15,0"/>
+        <ListBox x:Name="SheetListBox" Grid.Row="1" Margin="15" SelectionMode="Single" SelectionChanged="SheetListBox_SelectionChanged"/>
+        <Button Grid.Row="2" Content="Új Megbízás" Width="100" HorizontalAlignment="Right" Margin="15 ,0 ,15 ,15" Click="Button_Click"/>
+
 
     </Grid>
 </Window>

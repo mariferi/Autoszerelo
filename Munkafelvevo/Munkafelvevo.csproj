@@ -8,7 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Autoszerelo\Autoszerelo.csproj" />
+    <ProjectReference Include="..\WebApi_Common1\WebApi_Common.csproj" />
   </ItemGroup>
 
 </Project>
