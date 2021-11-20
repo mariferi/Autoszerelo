@@ -5,9 +5,11 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Autoszerelo", "Autoszerelo\Autoszerelo.csproj", "{9F7D5783-1897-4D69-B0D5-F11CB06173FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi_Server", "WebApi_Server\WebApi_Server.csproj", "{59640116-B214-445E-9D9E-14FF6B294E32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi_Server", "WebApi_Server\WebApi_Server.csproj", "{59640116-B214-445E-9D9E-14FF6B294E32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi_Common", "WebApi_Common\WebApi_Common.csproj", "{D9723DBA-B688-4F6F-8C55-DF5B86188B11}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi_Common", "WebApi_Common1\WebApi_Common.csproj", "{F6996500-DC0C-44BE-96F7-501D6186F5AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Munkafelvevo", "Munkafelvevo\Munkafelvevo.csproj", "{C15BB2AF-5973-4AC1-81E3-113C25747951}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +25,14 @@ Global
 		{59640116-B214-445E-9D9E-14FF6B294E32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59640116-B214-445E-9D9E-14FF6B294E32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59640116-B214-445E-9D9E-14FF6B294E32}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D9723DBA-B688-4F6F-8C55-DF5B86188B11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D9723DBA-B688-4F6F-8C55-DF5B86188B11}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D9723DBA-B688-4F6F-8C55-DF5B86188B11}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D9723DBA-B688-4F6F-8C55-DF5B86188B11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6996500-DC0C-44BE-96F7-501D6186F5AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6996500-DC0C-44BE-96F7-501D6186F5AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6996500-DC0C-44BE-96F7-501D6186F5AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6996500-DC0C-44BE-96F7-501D6186F5AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C15BB2AF-5973-4AC1-81E3-113C25747951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C15BB2AF-5973-4AC1-81E3-113C25747951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C15BB2AF-5973-4AC1-81E3-113C25747951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C15BB2AF-5973-4AC1-81E3-113C25747951}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

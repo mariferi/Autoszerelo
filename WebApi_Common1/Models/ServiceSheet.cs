@@ -25,6 +25,8 @@ namespace WebApi_Common.Models
         [MaxLength(200)]
         public string ErrorDescription { get; set; }
 
+        [Required]
+        public DateTime Date { get; set; }
         public string WorkStatus { get; set; }
 
         public override bool Equals(object obj)
@@ -43,7 +45,7 @@ namespace WebApi_Common.Models
 
         public override string ToString()
         {
-            return $"Megrendelő: {CustomerName},Rendszám: {LicensePlate},Státusz: {WorkStatus}";
+            return $"Megrendelő: {CustomerName},Rendszám: {LicensePlate},Státusz: {WorkStatus},Felvétel időpontja: {Date}";
         }
     }
 }
