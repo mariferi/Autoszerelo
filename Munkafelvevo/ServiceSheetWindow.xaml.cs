@@ -1,16 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using WebApi_Common.Models;
 using WebApi_Server.Repositories;
 
@@ -36,7 +26,6 @@ namespace Munkafelvevo
                 CarTypeTextBox.Text = _serviceSheet.CarType;
                 LicensePlateTextBox.Text = _serviceSheet.LicensePlate;
                 ErrorDescriptionTextBox.Text = _serviceSheet.ErrorDescription;
-                WorkStatusTextBox.Text = _serviceSheet.WorkStatus;
                 DatePicker.SelectedDate = _serviceSheet.Date;
 
                 //Gombok
@@ -63,9 +52,9 @@ namespace Munkafelvevo
                 _serviceSheet.CustomerName=CustomerNameTextBox.Text;
                 _serviceSheet.CarType=CarTypeTextBox.Text;
                 _serviceSheet.ErrorDescription=ErrorDescriptionTextBox.Text;
-                _serviceSheet.WorkStatus=WorkStatusTextBox.Text;
+                _serviceSheet.WorkStatus="Felvett munka";
                 _serviceSheet.Date=DatePicker.SelectedDate.Value;
-                _serviceSheet.LicensePlate=LicensePlateTextBox.Text;
+                _serviceSheet.LicensePlate=LicensePlateTextBox.Text.ToUpper();
 
                 ServiceSheetRepository.AddServiceSheet(_serviceSheet);
 
@@ -82,9 +71,8 @@ namespace Munkafelvevo
                 _serviceSheet.CustomerName = CustomerNameTextBox.Text;
                 _serviceSheet.CarType = CarTypeTextBox.Text;
                 _serviceSheet.ErrorDescription = ErrorDescriptionTextBox.Text;
-                _serviceSheet.WorkStatus = WorkStatusTextBox.Text;
                 _serviceSheet.Date = DatePicker.SelectedDate.Value;
-                _serviceSheet.LicensePlate = LicensePlateTextBox.Text;
+                _serviceSheet.LicensePlate = LicensePlateTextBox.Text.ToUpper();
 
                 ServiceSheetRepository.UpdateServiceSheet(_serviceSheet);
 
@@ -107,31 +95,91 @@ namespace Munkafelvevo
 
         private bool ValidInput()
         {
-            if (string.IsNullOrEmpty(CustomerNameTextBox.Text))
+            if (!IsValidCustomerName()) // ha nem ervenyes az ugyfel neve
             {
-                MessageBox.Show("Vásárló név kell");
                 return false;
             }
-            if (string.IsNullOrEmpty(CarTypeTextBox.Text))
+            if (!IsValidCarType())
             {
-                MessageBox.Show("Autó típus kell");
+                return false;
+            }
+            if (!IsValidLicensePlate())
+            {
                 return false;
             }
             if (string.IsNullOrEmpty(ErrorDescriptionTextBox.Text))
             {
-                MessageBox.Show("Hiba Leírás kell");
-                return false;
-            }
-            if (string.IsNullOrEmpty(WorkStatusTextBox.Text))
-            {
-                MessageBox.Show("Rendszám  kell");
+                MessageBox.Show("A hiba leírás mező nem lehet üres!");
                 return false;
             }
             if (!DatePicker.SelectedDate.HasValue)
             {
-                MessageBox.Show("Dátum kell");
+                MessageBox.Show("Dátum választása kötelező!");
                 return false;
             }
+            return true;
+        }
+
+        private bool IsValidCustomerName()
+        {
+            string customerName = CustomerNameTextBox.Text;
+            if (string.IsNullOrEmpty(customerName))
+            {
+                MessageBox.Show("Az ügyfél név mező kitöltése kötelező!");
+                return false;
+            }
+            else if(customerName.IndexOfAny("~ˇ^˘°˛`˙´˝¨¸¸\\|Ä€Í÷×äđĐ[]íłŁ$ß¤<>#&@{};>*?:_,.-\"'+!%/=()".ToCharArray()) != -1) //tartalmaz-e specialis karaktert
+            {
+                MessageBox.Show("Az ügyfél név mező nem tartalmazhat speciális karaktert!");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool IsValidCarType()
+        {
+            string carType = CarTypeTextBox.Text;
+            if (string.IsNullOrEmpty(carType))
+            {
+                MessageBox.Show("Az autó típusa mező kitöltése kötelező!");
+                return false;
+            }
+            else if (carType.IndexOfAny("~ˇ^˘°˛`˙´˝¨¸¸\\|Ä€Í÷×äđĐ[]íłŁ$ß¤<>#&@{};>*?:_,.-\"'+!%/=()".ToCharArray()) != -1) //tartalmaz-e specialis karaktert
+            {
+                MessageBox.Show("Az autó típusa mező nem tartalmazhat speciális karaktert!");
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool IsValidLicensePlate()
+        {
+            string licensePlate = LicensePlateTextBox.Text;
+            licensePlate = licensePlate.ToUpper();
+            if (string.IsNullOrEmpty(licensePlate))
+            {
+                MessageBox.Show("A rendszám mező kitöltése kötelező!");
+                return false;
+            }
+            else if (licensePlate.Length != 7)
+            {
+                MessageBox.Show("A rendszám mező formátuma a következő: XXX-000!");
+                return false;
+            }
+            else if (!(Char.IsUpper(licensePlate[0])
+                        && Char.IsUpper(licensePlate[1])
+                        && Char.IsUpper(licensePlate[2])
+                        && licensePlate[3].Equals('-')
+                        && Char.IsDigit(licensePlate[4])
+                        && Char.IsDigit(licensePlate[5])
+                        && Char.IsDigit(licensePlate[6])))// XXX-000
+            {
+                MessageBox.Show("A rendszám mező formátuma a következő: XXX-000!");
+                return false;
+            }
+
             return true;
         }
     }

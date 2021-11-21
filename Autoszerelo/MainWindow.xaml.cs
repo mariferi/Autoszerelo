@@ -12,24 +12,39 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Munkafelvevo;
+using WebApi_Common.Models;
+using WebApi_Server.Repositories;
 
 namespace Autoszerelo
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow()//Autószerelő ablak
         {
             InitializeComponent();
+            UpdateSheetListBox();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)//Új munka gomb
+        private void SheetListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)//Listából választás
         {
-            Munkafelvevo.MainWindow win2 = new Munkafelvevo.MainWindow();
-            win2.Show();
+            var selectedSheet = SheetListBox.SelectedItem as ServiceSheet;
+
+            if (selectedSheet != null)
+            {
+                var window = new MechanicServiceSheetWindow(selectedSheet);
+                if (window.ShowDialog() ?? false)
+                {
+                    UpdateSheetListBox();
+                }
+                SheetListBox.UnselectAll();
+            }
+        }
+
+        private void UpdateSheetListBox()
+        {
+            var sheets = ServiceSheetRepository.GetServiceSheets().ToList();
+            sheets.Sort((x, y) => DateTime.Compare(x.Date, y.Date));
+            SheetListBox.ItemsSource = sheets;
         }
     }
 }

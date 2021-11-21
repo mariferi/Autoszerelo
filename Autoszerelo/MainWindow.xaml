@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Autoszerelo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Autószerelő kliens" Height="450" Width="800">
     <Grid>
-        <Button Content="Új Megbízás" Width="100" HorizontalAlignment="Right" Margin="15 ,0 ,15 ,15" Click="Button_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Content="Megbízások" Margin = "15,15,15,0"/>
+        <ListBox x:Name="SheetListBox" Grid.Row="2" Margin="15" SelectionMode="Single" SelectionChanged="SheetListBox_SelectionChanged"/>
+
     </Grid>
 </Window>

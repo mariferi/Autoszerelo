@@ -19,8 +19,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+            </Grid.RowDefinitions>
         
         <Label Grid.Column="0" Grid.Row="0" Content="Megrendelő Neve" Margin="10"/>
         <TextBox x:Name="CustomerNameTextBox" Grid.Column="1" Grid.Row="0" Margin="10"/>
@@ -31,14 +30,12 @@
         <Label Grid.Column="0" Grid.Row="2" Content="Rendszám" Margin="10"/>
         <TextBox x:Name="LicensePlateTextBox" Grid.Column="1" Grid.Row="2" Margin="10"/>
 
-        <Label Grid.Column="0" Grid.Row="3" Content="Munka Státusz" Margin="10"/>
-        <TextBox x:Name="WorkStatusTextBox" Grid.Column="1" Grid.Row="3" Margin="10"/>
 
-        <Label Grid.Column="0" Grid.Row="4" Content="Dátum" Margin="10"/>
-        <DatePicker x:Name="DatePicker" Grid.Column="1" Grid.Row="4" Margin="10"/>
+        <Label Grid.Column="0" Grid.Row="3" Content="Dátum" Margin="10"/>
+        <DatePicker x:Name="DatePicker" Grid.Column="1" Grid.Row="3" Margin="10"/>
 
-        <Label Grid.Column="0" Grid.Row="5" Content="Hiba Leírás" Margin="10"/>
-        <TextBox x:Name="ErrorDescriptionTextBox" Grid.Column="1" Grid.Row="5" Margin="10"/>
+        <Label Grid.Column="0" Grid.Row="4" Content="Hiba Leírás" Margin="10"/>
+        <TextBox x:Name="ErrorDescriptionTextBox" Grid.Column="1" Grid.Row="4" Margin="10"/>
 
     </Grid>
     <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom">

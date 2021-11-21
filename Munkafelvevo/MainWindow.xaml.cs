@@ -54,9 +54,9 @@ namespace Munkafelvevo
 
         private void UpdateSheetListBox()
         {
-            
             var sheets = ServiceSheetRepository.GetServiceSheets().ToList();
-            SheetListBox.ItemsSource= sheets;
+            sheets.Sort((x, y) => DateTime.Compare(x.Date, y.Date));
+            SheetListBox.ItemsSource = sheets;
         }
     }
 }

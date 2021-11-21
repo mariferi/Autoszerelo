@@ -45,7 +45,7 @@ namespace WebApi_Common.Models
 
         public override string ToString()
         {
-            return $"Megrendelő: {CustomerName},Rendszám: {LicensePlate},Státusz: {WorkStatus},Felvétel időpontja: {Date}";
+            return $"Megrendelő:\t {CustomerName},\t\tRendszám:\t {LicensePlate},\tStátusz: {WorkStatus},\tFelvétel időpontja:\t {Date}";
         }
     }
 }

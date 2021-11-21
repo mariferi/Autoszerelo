@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Autoszerelo", "Autoszerelo\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi_Server", "WebApi_Server\WebApi_Server.csproj", "{59640116-B214-445E-9D9E-14FF6B294E32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi_Common", "WebApi_Common1\WebApi_Common.csproj", "{F6996500-DC0C-44BE-96F7-501D6186F5AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi_Common", "WebApi_Common1\WebApi_Common.csproj", "{F6996500-DC0C-44BE-96F7-501D6186F5AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Munkafelvevo", "Munkafelvevo\Munkafelvevo.csproj", "{C15BB2AF-5973-4AC1-81E3-113C25747951}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Munkafelvevo", "Munkafelvevo\Munkafelvevo.csproj", "{C15BB2AF-5973-4AC1-81E3-113C25747951}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
