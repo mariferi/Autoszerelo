@@ -12,8 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Autoszerelo\Autoszerelo.csproj" />
     <ProjectReference Include="..\WebApi_Common1\WebApi_Common.csproj" />
+    <ProjectReference Include="..\WebApi_Server\WebApi_Server.csproj" />
   </ItemGroup>
 
 </Project>

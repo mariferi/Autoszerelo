@@ -12,8 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Munkafelvevo.DataProviders;
 using WebApi_Common.Models;
+using WebApi_Server.Repositories;
 
 namespace Munkafelvevo
 {
@@ -54,7 +54,8 @@ namespace Munkafelvevo
 
         private void UpdateSheetListBox()
         {
-            var sheets = DataProvider.GetServiceSheets().ToList();
+            
+            var sheets = ServiceSheetRepository.GetServiceSheets().ToList();
             SheetListBox.ItemsSource= sheets;
         }
     }

@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WebApi_Common.Models;
-using Munkafelvevo.DataProviders;
+using WebApi_Server.Repositories;
+
 
 namespace Munkafelvevo
 {
@@ -66,7 +67,7 @@ namespace Munkafelvevo
                 _serviceSheet.Date=DatePicker.SelectedDate.Value;
                 _serviceSheet.LicensePlate=LicensePlateTextBox.Text;
 
-                DataProvider.CreateSheet(_serviceSheet);
+                ServiceSheetRepository.AddServiceSheet(_serviceSheet);
 
                 DialogResult = true;
                 Close();
@@ -85,7 +86,7 @@ namespace Munkafelvevo
                 _serviceSheet.Date = DatePicker.SelectedDate.Value;
                 _serviceSheet.LicensePlate = LicensePlateTextBox.Text;
 
-                DataProvider.UpdateSheet(_serviceSheet);
+                ServiceSheetRepository.UpdateServiceSheet(_serviceSheet);
 
                 DialogResult = true;
                 Close();
@@ -96,8 +97,8 @@ namespace Munkafelvevo
         {
             if (MessageBox.Show("Tényleg törölni akarja?","Question",MessageBoxButton.YesNo)==MessageBoxResult.Yes)
             {
-              
-                DataProvider.DeleteSheet(_serviceSheet);
+
+                ServiceSheetRepository.DeleteServiceSheet(_serviceSheet);
 
                 DialogResult = true;
                 Close();

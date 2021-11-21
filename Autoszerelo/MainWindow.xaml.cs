@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Munkafelvevo;
 
 namespace Autoszerelo
 {
@@ -23,6 +24,12 @@ namespace Autoszerelo
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)//Új munka gomb
+        {
+            Munkafelvevo.MainWindow win2 = new Munkafelvevo.MainWindow();
+            win2.Show();
         }
     }
 }

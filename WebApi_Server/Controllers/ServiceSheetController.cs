@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApi_Common.Models;
+using WebApi_Server.Repositories;
 
 namespace WebApi_Server.Controllers
 {
@@ -7,82 +8,62 @@ namespace WebApi_Server.Controllers
     [Route("api/servicesheet")]
     public class ServiceSheetController : Controller
     {
-        [HttpGet]
-        public ActionResult <IEnumerable<ServiceSheet>> Get()//Test
-        {
-            return Ok(new[] {new ServiceSheet { Id=1,CustomerName="A",
-                CarType="Honda",LicensePlate="1123",ErrorDescription="jajj",Date=new DateTime(2021,11,20,13,30,44) } });    
-        }
-
-        /*
-
-        [HttpGet]
-        public ActionResult<IEnumerable<ServiceSheet>> Getall()
-        {
-            var ServiceSheets = Repo.getServiceSheets();//WIP
-            return Ok(ServiceSheets);
-        }
-
-        [HttpGet("{Id}")]
-        public ActionResult<ServiceSheet> GetbyId(int Id)//Get
-        {
-            var ServiceSheets = Repo.getServiceSheets();//WIP
-            
-            var Sheet=ServiceSheets.FirstOrDefault(s => s.Id == Id);
-            if (Sheet != null)
+            [HttpGet]
+            public ActionResult<IEnumerable<ServiceSheet>> Get()
             {
-                return Ok(Sheet);
+                var serviceSheets = ServiceSheetRepository.GetServiceSheets();
+                return Ok(serviceSheets);
             }
-            return NotFound();
-        }
 
-        [HttpPost]
-        public ActionResult Post([FromBody]ServiceSheet serviceSheet)//Add
-        {
-            var ServiceSheets = Repo.getServiceSheets();
-            //serviceSheet.Id = randID(ServiceSheets);//random entity id lesz sztem ez nem kell majd?
-            ServiceSheets.Add(serviceSheet);
-            Repo.Store(ServiceSheets);
-            return Ok();
-        }
-
-        [HttpPut]
-        public ActionResult Put([FromBody] ServiceSheet serviceSheet)//update
-        {
-            var ServiceSheets = Repo.getServiceSheets().toList();
-
-            ServiceSheet SheetToUpdate = ServiceSheets.FirstOrDefault(s => s.Id == serviceSheet.Id);
-            if (SheetToUpdate != null)
+            [HttpGet("{id}")]
+            public ActionResult<ServiceSheet> Get(long id)
             {
-                SheetToUpdate.CustomerName=serviceSheet.CustomerName;
-                SheetToUpdate.CarType=serviceSheet.CarType;
-                SheetToUpdate.ErrorDescription=serviceSheet.ErrorDescription;
-                SheetToUpdate.WorkStatus=serviceSheet.WorkStatus;
-                SheetToUpdate.LicensePlate=serviceSheet.LicensePlate;
-                SheetToUpdate.WorkStatus=serviceSheet.WorkStatus;
-                SheetToUpdate.Date=serviceSheet.Date;
+                var serviceSheet = ServiceSheetRepository.GetServiceSheet(id);
 
-                Repo.store(serviceSheet);
-                return Ok();
+                if (serviceSheet != null)
+                {
+                    return Ok(serviceSheet);
+                }
+                else
+                {
+                    return NotFound();
+                }
             }
-            return NotFound();
-        }
 
-        [HttpDelete("{Id}")]
-        public ActionResult  Delete(int Id)//Delete
-        {
-            var ServiceSheets = Repo.getServiceSheets();//WIP
-
-            var SheetToDelete = ServiceSheets.FirstOrDefault(s => s.Id == Id);
-            if (SheetToDelete != null)
+            [HttpPost]
+            public ActionResult Post(ServiceSheet serviceSheet)
             {
-                ServiceSheets.Remove(SheetToDelete);
-                Repo.store(ServiceSheets);
+                ServiceSheetRepository.AddServiceSheet(serviceSheet);
 
                 return Ok();
             }
-            return NotFound();
+
+            [HttpPut("{id}")]
+            public ActionResult Put(ServiceSheet serviceSheet, long id)
+            {
+                var dbServiceSheet = ServiceSheetRepository.GetServiceSheet(id);
+
+                if (dbServiceSheet != null)
+                {
+                    ServiceSheetRepository.UpdateServiceSheet(serviceSheet);
+                    return Ok();
+                }
+
+                return NotFound();
+            }
+
+            [HttpDelete("{id}")]
+            public ActionResult Delete(long id)
+            {
+                var serviceSheet = ServiceSheetRepository.GetServiceSheet(id);
+
+                if (serviceSheet != null)
+                {
+                    ServiceSheetRepository.DeleteServiceSheet(serviceSheet);
+                    return Ok();
+                }
+
+                return NotFound();
+            }
         }
-        */
     }
-}
