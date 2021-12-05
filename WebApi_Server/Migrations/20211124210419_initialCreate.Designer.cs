@@ -12,7 +12,7 @@ using WebApi_Server.Repositories;
 namespace WebApi_Server.Migrations
 {
     [DbContext(typeof(ServiceSheetContext))]
-    [Migration("20211121145113_initialCreate")]
+    [Migration("20211124210419_initialCreate")]
     partial class initialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

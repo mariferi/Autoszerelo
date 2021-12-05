@@ -99,7 +99,7 @@ namespace Autoszerelo.Tests
         public void IsValidLicensePlate_WithValidArgument_ReturnTrue()
         {
             //Arrange
-            string licensePlate = "XXX-000";
+            string licensePlate = "AEN-333";
             //Act
             bool result = ServiceSheetWindow.IsValidLicensePlate(licensePlate);
             //Assert

@@ -39,7 +39,10 @@ namespace Autoszerelo
                 SheetListBox.UnselectAll();
             }
         }
-
+        private void FrissitesButton_Click(object sender, RoutedEventArgs e)
+        {
+            UpdateSheetListBox();
+        }
         private void UpdateSheetListBox()
         {
             var sheets = ServiceSheetRepository.GetServiceSheets().ToList();
