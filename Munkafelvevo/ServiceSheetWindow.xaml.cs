@@ -95,16 +95,19 @@ namespace Munkafelvevo
 
         private bool ValidInput()
         {
-            if (!IsValidCustomerName()) // ha nem ervenyes az ugyfel neve
+            if (!IsValidCustomerName(CustomerNameTextBox.Text)) // ha nem ervenyes az ugyfel neve
             {
+                MessageBox.Show("Az ügyfél név mező kitöltése kötelező és nem tartalmazhat speciális karaktert!");
                 return false;
             }
-            if (!IsValidCarType())
+            if (!IsValidCarType(CarTypeTextBox.Text))
             {
+                MessageBox.Show("Az autó típusa mező kitöltése kötelező és nem tartalmazhat speciális karaktert!");
                 return false;
             }
-            if (!IsValidLicensePlate())
+            if (!IsValidLicensePlate(LicensePlateTextBox.Text))
             {
+                MessageBox.Show("A rendszám mező formátuma a következő: XXX-000!");
                 return false;
             }
             if (string.IsNullOrEmpty(ErrorDescriptionTextBox.Text))
@@ -120,52 +123,42 @@ namespace Munkafelvevo
             return true;
         }
 
-        private bool IsValidCustomerName()
+        public static bool IsValidCustomerName(string customerName)
         {
-            string customerName = CustomerNameTextBox.Text;
-            if (string.IsNullOrEmpty(customerName))
+            if (string.IsNullOrWhiteSpace(customerName))
             {
-                MessageBox.Show("Az ügyfél név mező kitöltése kötelező!");
                 return false;
             }
             else if(customerName.IndexOfAny("~ˇ^˘°˛`˙´˝¨¸¸\\|Ä€Í÷×äđĐ[]íłŁ$ß¤<>#&@{};>*?:_,.-\"'+!%/=()".ToCharArray()) != -1) //tartalmaz-e specialis karaktert
             {
-                MessageBox.Show("Az ügyfél név mező nem tartalmazhat speciális karaktert!");
                 return false;
             }
 
             return true;
         }
-
-        private bool IsValidCarType()
+        public static bool IsValidCarType(string carType)
         {
-            string carType = CarTypeTextBox.Text;
-            if (string.IsNullOrEmpty(carType))
+            if (string.IsNullOrWhiteSpace(carType))
             {
-                MessageBox.Show("Az autó típusa mező kitöltése kötelező!");
                 return false;
             }
             else if (carType.IndexOfAny("~ˇ^˘°˛`˙´˝¨¸¸\\|Ä€Í÷×äđĐ[]íłŁ$ß¤<>#&@{};>*?:_,.-\"'+!%/=()".ToCharArray()) != -1) //tartalmaz-e specialis karaktert
             {
-                MessageBox.Show("Az autó típusa mező nem tartalmazhat speciális karaktert!");
                 return false;
             }
 
             return true;
         }
-
-        private bool IsValidLicensePlate()
+        public static bool IsValidLicensePlate(string licensePlate)
         {
-            string licensePlate = LicensePlateTextBox.Text;
             licensePlate = licensePlate.ToUpper();
             if (string.IsNullOrEmpty(licensePlate))
             {
-                MessageBox.Show("A rendszám mező kitöltése kötelező!");
                 return false;
             }
             else if (licensePlate.Length != 7)
             {
-                MessageBox.Show("A rendszám mező formátuma a következő: XXX-000!");
+                
                 return false;
             }
             else if (!(Char.IsUpper(licensePlate[0])
@@ -176,7 +169,6 @@ namespace Munkafelvevo
                         && Char.IsDigit(licensePlate[5])
                         && Char.IsDigit(licensePlate[6])))// XXX-000
             {
-                MessageBox.Show("A rendszám mező formátuma a következő: XXX-000!");
                 return false;
             }
 
