@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi_Common", "WebApi_Com
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Munkafelvevo", "Munkafelvevo\Munkafelvevo.csproj", "{C15BB2AF-5973-4AC1-81E3-113C25747951}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autoszerelo.Tests", "Autoszerelo.Tests\Autoszerelo.Tests.csproj", "{1FA8046F-36C0-4B4E-9670-9CEA41E991E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Autoszerelo.Tests", "Autoszerelo.Tests\Autoszerelo.Tests.csproj", "{1FA8046F-36C0-4B4E-9670-9CEA41E991E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WelcomePage", "WelcomePage\WelcomePage.csproj", "{CDB2721B-AECC-4411-9887-2F0315004D45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{1FA8046F-36C0-4B4E-9670-9CEA41E991E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FA8046F-36C0-4B4E-9670-9CEA41E991E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FA8046F-36C0-4B4E-9670-9CEA41E991E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDB2721B-AECC-4411-9887-2F0315004D45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDB2721B-AECC-4411-9887-2F0315004D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDB2721B-AECC-4411-9887-2F0315004D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDB2721B-AECC-4411-9887-2F0315004D45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
