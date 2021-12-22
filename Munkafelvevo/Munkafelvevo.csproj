@@ -16,4 +16,8 @@
     <ProjectReference Include="..\WebApi_Server\WebApi_Server.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="media\" />
+  </ItemGroup>
+
 </Project>

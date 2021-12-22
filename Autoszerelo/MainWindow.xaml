@@ -15,6 +15,10 @@
 
         <Label Grid.Row="0" Content="Megbízások" Margin = "15,15,15,0"/>
         <ListBox Grid.Row="1" x:Name="SheetListBox" Margin="15" SelectionMode="Single" SelectionChanged="SheetListBox_SelectionChanged"/>
-        <Button Grid.Row="2" Content="Frissítés" Width="100" HorizontalAlignment="Right" Margin="15 ,0 ,15 ,15" Click="FrissitesButton_Click"/>
+        <Button Grid.Row="2" Content="Frissítés" Width="100" HorizontalAlignment="Right" Margin="15 ,0 ,15 ,15" Click="FrissitesButton_Click" Cursor="Hand" Background="Green"/>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="media/szerekoback.jpg" Opacity="0.6"/>
+        </Grid.Background>
     </Grid>
 </Window>

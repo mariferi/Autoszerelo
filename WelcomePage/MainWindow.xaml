@@ -17,8 +17,19 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Üdvözöljük!" Margin = "15,15,15,15" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
-        <Button Grid.Row="1" Grid.Column="0" Content="Autószerelő" Width="auto" Click="Autoszerelo_Clicked"/>
-        <Button Grid.Row="1" Grid.Column="1" Content="Munkafelvevő" Width="auto" Click="Munkafelvevo_Clicked"/>
-        
+        <Button Grid.Row="1" Grid.Column="0" Content="Autószerelő" Width="auto" Click="Autoszerelo_Clicked"  Cursor="Hand" FontSize="50">
+            <Button.Background>
+                <ImageBrush ImageSource="media/service.jpg" Stretch="Fill" />
+            </Button.Background>
+        </Button>
+        <Button Grid.Row="1" Grid.Column="1" Content="Munkafelvevő" Width="auto" Click="Munkafelvevo_Clicked" Cursor="Hand" FontSize="50">
+            <Button.Background>
+                <ImageBrush ImageSource="media/munkafelvevo.jpeg" Stretch="Fill" />
+            </Button.Background>
+        </Button>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="media/back.jpg" Opacity="0.8"/>
+        </Grid.Background>
     </Grid>
 </Window>

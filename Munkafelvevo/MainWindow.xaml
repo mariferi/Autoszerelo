@@ -15,9 +15,12 @@
         
         <Label Grid.Row="0" Content="Megbízások" Margin="15,15,15,0"/>
         <ListBox x:Name="SheetListBox" Grid.Row="1" Margin="15" SelectionMode="Single" SelectionChanged="SheetListBox_SelectionChanged"/>
-        <Button Grid.Row="2" Content="Új Megbízás" Width="100" HorizontalAlignment="Right" Margin="15 ,0 ,15 ,15" Click="Button_Click"/>
-        <Button Grid.Row="2" Content="Frissítés" Width="100" HorizontalAlignment="Right" Margin="15,0 ,125 ,15" Click="Frissites_Click"/>
+        <Button Grid.Row="2" Content="Új Megbízás" Width="100" HorizontalAlignment="Right" Margin="15 ,0 ,15 ,15" Click="Button_Click"  Cursor="Hand" Background="GreenYellow"/>
+        <Button Grid.Row="2" Content="Frissítés" Width="100" HorizontalAlignment="Right" Margin="15,0 ,125 ,15" Click="Frissites_Click"  Cursor="Hand" Background="Green"/>
 
+        <Grid.Background>
+            <ImageBrush ImageSource="media/felvevobckg.png" Opacity="0.6"/>
+        </Grid.Background>
 
     </Grid>
 </Window>
