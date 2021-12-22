@@ -43,7 +43,7 @@ namespace Munkafelvevo
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)//Új munka gomb
+        private void Button_Click(object sender, RoutedEventArgs e) //Új munka gomb
         {
             var window = new ServiceSheetWindow(null);
             if(window.ShowDialog()?? false)
@@ -51,11 +51,16 @@ namespace Munkafelvevo
                 UpdateSheetListBox();
             }
         }
+        private void Frissites_Click(object sender, RoutedEventArgs e) //Frissites gomb
+        {
+            UpdateSheetListBox();
+        }
 
         private void UpdateSheetListBox()
         {
             var sheets = ServiceSheetRepository.GetServiceSheets().ToList();
             sheets.Sort((x, y) => DateTime.Compare(x.Date, y.Date));
+            sheets.Reverse();
             SheetListBox.ItemsSource = sheets;
         }
     }

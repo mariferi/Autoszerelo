@@ -7,6 +7,7 @@ namespace Autoszerelo.Tests
     public class ServiceSheetUnitTests
     {
         // customerName
+
         [TestMethod]
         public void IsValidCustomername_WithValidArgument_ReturnTrue()
         {

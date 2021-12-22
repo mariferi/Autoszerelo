@@ -95,7 +95,7 @@ namespace Munkafelvevo
 
         private bool ValidInput()
         {
-            if (!IsValidCustomerName(CustomerNameTextBox.Text)) // ha nem ervenyes az ugyfel neve
+            if (!IsValidCustomerName(CustomerNameTextBox.Text))
             {
                 MessageBox.Show("Az ügyfél név mező kitöltése kötelező és nem tartalmazhat speciális karaktert!");
                 return false;

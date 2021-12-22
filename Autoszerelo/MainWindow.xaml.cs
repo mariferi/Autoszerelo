@@ -47,6 +47,7 @@ namespace Autoszerelo
         {
             var sheets = ServiceSheetRepository.GetServiceSheets().ToList();
             sheets.Sort((x, y) => DateTime.Compare(x.Date, y.Date));
+            // sheets.Reverse(); //ha azt szeretnenk, hogy a legfrissebb munka legyen legfelul
             SheetListBox.ItemsSource = sheets;
         }
     }
