@@ -8,12 +8,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="media\back.jpg" />
+    <None Remove="media\munkafelvevo.jpeg" />
+    <None Remove="media\service.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Autoszerelo\Autoszerelo.csproj" />
     <ProjectReference Include="..\Munkafelvevo\Munkafelvevo.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="media\" />
+    <Resource Include="media\back.jpg" />
+    <Resource Include="media\munkafelvevo.jpeg" />
+    <Resource Include="media\service.jpg" />
   </ItemGroup>
 
 </Project>

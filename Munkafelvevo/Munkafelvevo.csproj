@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="media\felvevobckg.png" />
+    <None Remove="media\service.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
@@ -17,7 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="media\" />
+    <Resource Include="media\felvevobckg.png" />
+    <Resource Include="media\service.jpg" />
   </ItemGroup>
 
 </Project>
