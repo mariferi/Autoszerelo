@@ -5,12 +5,71 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Autoszerelo"
         mc:Ignorable="d"
-        Title="Munkalap" Height="450" Width="800">
+        Title="Munkalap" Height="450" Width="450" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="Round" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border"  CornerRadius="12" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150"/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="29.712"/>
+                <ColumnDefinition Width="120.288"/>
+                <ColumnDefinition Width="47*"/>
+                <ColumnDefinition Width="253*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -22,26 +81,26 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Column="0" Grid.Row="0" Content="Megrendelő Neve" VerticalAlignment = "Center" Margin="10"/>
-            <TextBlock x:Name="CustomerNameTextBox" Grid.Column="1" VerticalAlignment = "Center" Grid.Row="0" Margin="10"/>
+            <Label Grid.Column="0" Content="Megrendelő" VerticalAlignment = "Center" Margin="10,0,10,0" Grid.ColumnSpan="2" FontSize="15" FontWeight="Bold"/>
+            <TextBlock x:Name="CustomerNameTextBox" Grid.Column="2" VerticalAlignment = "Center" Margin="10,0,10,0" Grid.ColumnSpan="2"/>
 
-            <Label Grid.Column="0" Grid.Row="1" Content="Autó Típusa" VerticalAlignment = "Center" Margin="10"/>
-            <TextBlock x:Name="CarTypeTextBox" Grid.Column="1" VerticalAlignment = "Center" Grid.Row="1" Margin="10"/>
+            <Label Grid.Column="0" Grid.Row="1" Content="Autó Típusa" VerticalAlignment = "Center" Margin="10,0,10,0" Grid.ColumnSpan="2" FontSize="15" FontWeight="Bold"/>
+            <TextBlock x:Name="CarTypeTextBox" Grid.Column="2" VerticalAlignment = "Center" Grid.Row="1" Margin="10,0,10,0" Grid.ColumnSpan="2"/>
 
-            <Label Grid.Column="0" Grid.Row="2" Content="Rendszám" VerticalAlignment = "Center" Margin="10"/>
-            <TextBlock x:Name="LicensePlateTextBox" Grid.Column="1" VerticalAlignment = "Center" Grid.Row="2" Margin="10"/>
+            <Label Grid.Column="0" Grid.Row="2" Content="Rendszám" VerticalAlignment = "Center" Margin="10,0,10,0" Grid.ColumnSpan="2" FontSize="15" FontWeight="Bold"/>
+            <TextBlock x:Name="LicensePlateTextBox" Grid.Column="2" VerticalAlignment = "Center" Grid.Row="2" Margin="10,0,10,0" Grid.ColumnSpan="2"/>
 
 
-            <Label Grid.Column="0" Grid.Row="3" Content="Dátum" VerticalAlignment = "Center" Margin="10"/>
-            <TextBlock x:Name="DatePicker" Grid.Column="1" VerticalAlignment = "Center" Grid.Row="3" Margin="10"/>
+            <Label Grid.Column="0" Grid.Row="3" Content="Dátum" VerticalAlignment = "Center" Margin="10,0,10,0" Grid.ColumnSpan="2" FontSize="15" FontWeight="Bold"/>
+            <TextBlock x:Name="DatePicker" Grid.Column="2" VerticalAlignment = "Center" Grid.Row="3" Margin="10,0,10,0" Grid.ColumnSpan="2"/>
 
-            <Label Grid.Column="0" Grid.Row="4" Content="Hiba Leírás" VerticalAlignment = "Center" Margin="10"/>
-            <TextBlock x:Name="ErrorDescriptionTextBox" Grid.Column="1" VerticalAlignment = "Center" Grid.Row="4" Margin="10"/>
+            <Label Grid.Column="0" Grid.Row="4" Content="Hiba Leírás" VerticalAlignment = "Center" Margin="10,0,10,0" Grid.ColumnSpan="2" FontSize="15" FontWeight="Bold"/>
+            <TextBlock x:Name="ErrorDescriptionTextBox" Grid.Column="2" VerticalAlignment = "Center" Grid.Row="4" Margin="10,0,10,0" Grid.ColumnSpan="2"/>
 
-            <Label Grid.Column="0" Grid.Row="5" Content="Munka státusz" VerticalAlignment = "Center" Margin="10"/>
-            <ComboBox Grid.Column="1" Grid.Row="5" x:Name = "comboBox" HorizontalAlignment = "Left" Margin="10" 
-                      VerticalAlignment = "Center" Width = "120" SelectionChanged = "Combo_SelectionChanged"
-                      Text="Munka státusz kiválasztása">
+            <Label Grid.Column="0" Grid.Row="5" Content="Munka státusz" VerticalAlignment = "Center" Margin="10,0,10,0" Grid.ColumnSpan="2" FontSize="15" FontWeight="Bold"/>
+            <ComboBox Grid.Column="2" Grid.Row="5" x:Name = "comboBox" HorizontalAlignment = "Center" Margin="10,0,0,0" 
+                      VerticalAlignment = "Center" Width = "150" SelectionChanged = "Combo_SelectionChanged"
+                      Text="Munka státusz kiválasztása" Grid.ColumnSpan="2">
                 <ComboBoxItem Content = "Felvett munka" />
                 <ComboBoxItem Content = "Elvégzés alatt" />
                 <ComboBoxItem Content = "Befejezett" />
@@ -49,7 +108,7 @@
 
         </Grid>
         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom">
-            <Button x:Name="UpdateButton" Width="100" Content="Update" Margin="10" Click="UpdateButton_Click" Cursor="Hand" Background="Yellow"/>
+            <Button Style="{DynamicResource Round}" x:Name="UpdateButton" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Content="Update" Margin="10" Click="UpdateButton_Click" Cursor="Hand" Background="Yellow" FontSize="15" FontWeight="Bold"/>
         </StackPanel>
 
         <Grid.Background>
