@@ -116,27 +116,23 @@ namespace Autoszerelo.Tests
             //Assert
             Assert.IsFalse(resultEmpty);
         }
+
+
         [TestMethod]
-        public void IsValidLicensePlate_WithInvalidArgument_ReturnFalse()
+        [DataRow("XXX000")]
+        [DataRow("XX-0000")]
+        [DataRow("000-XXX")]
+        [DataRow("000-000")]
+        [DataRow("X-XX000")]
+        public void IsValidLicensePlate_WithInvalidArgument_ReturnFalse( string plate)
         {
             //Arrange
-            string s1 = "XXX000";
-            string s2 = "XX-0000";
-            string s3 = "000-XXX";
-            string s4 = "000-000";
-            string s5 = "X-XX000";
             //Act
-            bool r1 = ServiceSheetWindow.IsValidLicensePlate(s1);
-            bool r2 = ServiceSheetWindow.IsValidLicensePlate(s2);
-            bool r3 = ServiceSheetWindow.IsValidLicensePlate(s3);
-            bool r4 = ServiceSheetWindow.IsValidLicensePlate(s4);
-            bool r5 = ServiceSheetWindow.IsValidLicensePlate(s5);
+            bool r1 = ServiceSheetWindow.IsValidLicensePlate(plate);
+          
             //Assert
             Assert.IsFalse(r1);
-            Assert.IsFalse(r2);
-            Assert.IsFalse(r3);
-            Assert.IsFalse(r4);
-            Assert.IsFalse(r5);
+            
         }
 
     }
