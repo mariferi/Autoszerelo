@@ -111,7 +111,13 @@
         </Grid.RowDefinitions>
         
         <Label Grid.Row="0" Content="Megbízások" Margin="15,15,15,0" FontSize="15" FontWeight="Bold"/>
-        <ListBox Style="{DynamicResource ListBoxStyle1}" x:Name="SheetListBox" Grid.Row="1" Margin="15" SelectionMode="Single"  SelectionChanged="SheetListBox_SelectionChanged" BorderThickness="0" Opacity="0.7"/>
+        <ListBox Style="{DynamicResource ListBoxStyle1}" x:Name="SheetListBox" Grid.Row="1" Margin="15" SelectionMode="Single"  SelectionChanged="SheetListBox_SelectionChanged" BorderThickness="0" Opacity="0.7">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="Padding" Value="5,5,0,10"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
         <Button Grid.Row="2" Content="Új Megbízás" Width="100" HorizontalAlignment="Right" Margin="15 ,0 ,15 ,15" Click="Button_Click"  Cursor="Hand" Background="GreenYellow" Style="{DynamicResource Round}" FontSize="15" FontWeight="Bold"/>
         <Button Style="{DynamicResource Round}" Grid.Row="2" Content="Frissítés" Width="100" HorizontalAlignment="Right" Margin="15,0 ,125 ,15" Click="Frissites_Click"  Cursor="Hand" Background="Green" FontSize="15" FontWeight="Bold"/>
 

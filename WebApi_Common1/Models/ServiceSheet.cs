@@ -45,7 +45,7 @@ namespace WebApi_Common.Models
 
         public override string ToString()
         {
-            return $"{CustomerName},\t\t{LicensePlate},\t{WorkStatus},\tFelvétel időpontja: {Date}";
+            return $"Név:\t{CustomerName}\nAutó:\t{CarType} --- {LicensePlate}\nÁllapot:\t{WorkStatus}\nFelvéve:\t{Date.ToString("yyyy/MM/dd")}";
         }
     }
 }

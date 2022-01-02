@@ -31,7 +31,7 @@ namespace Autoszerelo
             CarTypeTextBox.Text = _serviceSheet.CarType;
             LicensePlateTextBox.Text = _serviceSheet.LicensePlate;
             ErrorDescriptionTextBox.Text = _serviceSheet.ErrorDescription;
-            DatePicker.Text = _serviceSheet.Date.ToString();
+            DatePicker.Text = _serviceSheet.Date.ToString("yyyy/MM/dd");
             comboBox.Text = _serviceSheet.WorkStatus;
 
         }
